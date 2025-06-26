@@ -1,4 +1,4 @@
-package ru.shift;
+package ru.shift.service;
 
 public enum DataType {
     INTEGER,

@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
-import ru.shift.DataClassificator;
-import ru.shift.DataType;
+import ru.shift.service.DataClassificator;
+import ru.shift.service.DataType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
