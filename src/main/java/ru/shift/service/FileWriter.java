@@ -39,7 +39,7 @@ public class FileWriter {
             writer = Files.newBufferedWriter(
                     path,
                     arguments.isAppend() ? new OpenOption[] {StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.APPEND}
-                            : new OpenOption[] {StandardOpenOption.CREATE, StandardOpenOption.WRITE}
+                            : new OpenOption[] {StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING}
             );
             writers.put(type, writer);
 

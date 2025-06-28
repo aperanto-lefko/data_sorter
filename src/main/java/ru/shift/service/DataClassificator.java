@@ -8,7 +8,7 @@ public class DataClassificator {
             return DataType.STRING;
         }
         if (line.matches("-?\\d+")) return DataType.INTEGER;
-        if (line.matches("-?\\d*\\.\\d+")) return DataType.FLOAT;
+        if (line.matches("-?(\\d+\\.\\d*|\\.\\d+|\\d+)([eE][-+]?\\d+)?")) return DataType.FLOAT;
         return DataType.STRING;
     }
 }

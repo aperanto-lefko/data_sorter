@@ -78,7 +78,7 @@ public class DataClassificatorTest {
 
     @Test
     public void shouldReturnString_WhenScientificNotation() {
-        assertEquals(DataType.STRING, DataClassificator.getType("1.23e-4"));
+        assertEquals(DataType.FLOAT, DataClassificator.getType("1.23e-4"));
     }
 
     @Test

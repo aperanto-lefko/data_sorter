@@ -39,7 +39,8 @@ public class ArgumentParser {
                         prefix = args[++i];
                     }
                     case "-a" -> append = true;
-                    case "-s" -> fullStats = true;
+                    case "-s" -> fullStats = false;
+                    case "-f" -> fullStats = true;
                     default -> {
                         if (args[i].startsWith("-")) {
                             log.warn("Неизвестная опция: {}", args[i]);
