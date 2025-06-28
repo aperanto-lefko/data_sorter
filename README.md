@@ -14,8 +14,8 @@
 | [SLF4J](https://www.slf4j.org/) | 2.0.12 | Логирование (API) |
 | [Logback](https://logback.qos.ch/) | 1.4.14 | Реализация логирования |
 | [JUnit Jupiter](https://junit.org/junit5/) | 5.9.3 | Тестирование |
-| [Mockito](https://site.mockito.org/) | 4.5.1 | Моки для тестов |
 | [AssertJ](https://assertj.github.io/doc/) | 3.22.0 | Утверждения для тестов |
+
 
 ## Сборка проекта
 

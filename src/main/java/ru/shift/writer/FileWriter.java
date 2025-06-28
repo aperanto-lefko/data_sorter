@@ -1,11 +1,12 @@
-package ru.shift.service;
+package ru.shift.writer;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import ru.shift.parser.ArgumentParser;
+import ru.shift.enums.DataType;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,19 +23,17 @@ import java.util.Map;
 public class FileWriter {
     Map<DataType, BufferedWriter> writers = new HashMap<>();
     ArgumentParser arguments;
+    FileNameGenerator fileNameGenerator;
 
-    public FileWriter (ArgumentParser arguments) {
+    public FileWriter (ArgumentParser arguments, FileNameGenerator fileNameGenerator) {
         this.arguments = arguments;
+        this.fileNameGenerator = fileNameGenerator;
     }
 
     public void write (DataType type, String text) throws IOException {
         BufferedWriter writer = writers.get(type);
         if (writer == null) {
-            String fileName = switch(type) {
-                case INTEGER -> "integers.txt";
-                case FLOAT -> "floats.txt";
-                case STRING -> "strings.txt";
-            };
+            String fileName = fileNameGenerator.getFileName(type);
             Path path = Paths.get(arguments.getOutputDir(), arguments.getPrefix()+fileName);
             writer = Files.newBufferedWriter(
                     path,
@@ -47,6 +46,8 @@ public class FileWriter {
         writer.write(text);
         writer.newLine();
     }
+
+
 
     public void closeWriters() {
         for(BufferedWriter writer: writers.values()) {

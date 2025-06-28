@@ -1,6 +1,10 @@
-package ru.shift.service;
+package ru.shift.reader;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.shift.classifier.DataClassifier;
+import ru.shift.printer.StatisticPrinter;
+import ru.shift.enums.DataType;
+import ru.shift.writer.FileWriter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,7 +29,7 @@ public class FileReader {
                     String text = reader.readLine();
                     if (text != null) {
                         reading = true;
-                        DataType type = DataClassificator.getType(text);
+                        DataType type = DataClassifier.getType(text);
                         writer.write(type, text);
                         printer.addLine(type, text);
                     }

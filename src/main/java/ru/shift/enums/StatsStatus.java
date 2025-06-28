@@ -1,4 +1,4 @@
-package ru.shift.service;
+package ru.shift.enums;
 
 public enum StatsStatus {
     NONE,

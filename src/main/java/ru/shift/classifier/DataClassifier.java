@@ -1,8 +1,9 @@
-package ru.shift.service;
+package ru.shift.classifier;
 
 
+import ru.shift.enums.DataType;
 
-public class DataClassificator {
+public class DataClassifier {
     public static DataType getType(String line) {
         if (line == null) {
             return DataType.STRING;

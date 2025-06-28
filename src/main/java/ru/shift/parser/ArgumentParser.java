@@ -1,9 +1,10 @@
-package ru.shift.service;
+package ru.shift.parser;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import ru.shift.enums.StatsStatus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
