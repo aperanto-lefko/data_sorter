@@ -25,12 +25,15 @@ public class StatisticPrinter {
         }
     }
 
-    public void print(boolean full) {
+    public void print(StatsStatus status) {
+        if (status == StatsStatus.NONE) {
+            return;
+        }
 
         if (!longs.isEmpty()) {
             log.info("Целые числа: {}", longs.size());
 
-            if (full) {
+            if (status == StatsStatus.FULL) {
                 log.info(
                         "Мин: {}, макс: {}, сумма {}, среднее значение {}",
                         Collections.min(longs),
@@ -44,7 +47,7 @@ public class StatisticPrinter {
         if (!floats.isEmpty()) {
             log.info("Вещественные числа {} ", floats.size());
 
-            if (full) {
+            if (status == StatsStatus.FULL) {
                 log.info(
                         "Мин: {}, макс: {}, сумма {}, среднее значение {}",
                         Collections.min(floats),
@@ -57,7 +60,7 @@ public class StatisticPrinter {
         if (!strings.isEmpty()) {
             log.info("Строки {}", strings.size());
 
-            if (full) {
+            if (status == StatsStatus.FULL) {
                 int min = strings.stream()
                         .mapToInt(String::length)
                         .min()

@@ -17,7 +17,7 @@ public class ArgumentParser {
     String outputDir = ".";
     String prefix = "";
     boolean append = false;
-    boolean fullStats = false;
+    StatsStatus status = StatsStatus.NONE;
 
     public ArgumentParser(String[] args) {
         if (args.length == 0) throw new IllegalArgumentException("Не указаны входные данные");
@@ -39,8 +39,8 @@ public class ArgumentParser {
                         prefix = args[++i];
                     }
                     case "-a" -> append = true;
-                    case "-s" -> fullStats = false;
-                    case "-f" -> fullStats = true;
+                    case "-s" -> status=StatsStatus.SHORT;
+                    case "-f" -> status=StatsStatus.FULL;
                     default -> {
                         if (args[i].startsWith("-")) {
                             log.warn("Неизвестная опция: {}", args[i]);

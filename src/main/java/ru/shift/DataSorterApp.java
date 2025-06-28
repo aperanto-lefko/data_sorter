@@ -26,7 +26,7 @@ public class DataSorterApp {
             FileReader fileReader = new FileReader();
             fileReader.readFile(arguments.getInputFiles(), writer, printer);
             writer.closeWriters();
-            printer.print(arguments.isFullStats());
+            printer.print(arguments.getStatus());
         } catch (IllegalArgumentException e) {
             log.error("Ошибка аргументов: {} ", e.getMessage(), e);
         } catch (Exception e) {
